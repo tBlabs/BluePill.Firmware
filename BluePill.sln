@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BluePill", "BluePill\BluePill.vcxproj", "{BA093F43-6C17-4B73-9929-53430A356D1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|VisualGDB = Debug|VisualGDB
+		Release|VisualGDB = Release|VisualGDB
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA093F43-6C17-4B73-9929-53430A356D1C}.Debug|VisualGDB.ActiveCfg = Debug|VisualGDB
+		{BA093F43-6C17-4B73-9929-53430A356D1C}.Debug|VisualGDB.Build.0 = Debug|VisualGDB
+		{BA093F43-6C17-4B73-9929-53430A356D1C}.Release|VisualGDB.ActiveCfg = Release|VisualGDB
+		{BA093F43-6C17-4B73-9929-53430A356D1C}.Release|VisualGDB.Build.0 = Release|VisualGDB
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0E00090-0B5A-4737-B07F-4AD4B56CE8F8}
+	EndGlobalSection
+EndGlobal
