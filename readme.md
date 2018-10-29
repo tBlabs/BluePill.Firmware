@@ -14,6 +14,7 @@ Firmware for BluePill development board.
 
 Search for `BluePill.Driver` in my repo.
 
+## Board pinout
 
 ```
                              | | | |
@@ -51,7 +52,7 @@ Rx pin: A10
 
 | Type			| Value | Data size | Params			   | Possible response |
 | --------------------- | ----- | --------- | ---------------------------- | ----------------- |
-| Ping			| 0x01	| 0	    | *none*			   | Pong	       |
+| Ping			| 0x01	| 0 bytes   | *none*			   | Pong	       |
 | Get			| 0x02	| 1	    | addr:8			   | Update / Error    |
 | Get all sensors	| 0x03	| 0	    | *none*			   | UpdateAll / Error |
 | Set			| 0x04	| 5	    | addr:8, value:32		   | Update / Error    |
@@ -61,15 +62,15 @@ Rx pin: A10
 
 0xAB {FrameType:8} {Data:0+} {Xor:8}
 
-| Type             | Value | Data size  | Data values |
-| ---------------- | ----- | ---------- | ----------- |
-| Pong		   | 0x01  | 0		| *none*
-| Error		   | 0x02  | 1		| errorCode:8 |
-| Update	   | 0x03  | 5		| addr:8, value:32 |
-| UpdateAll 	   | 0x04  | 40		| input1:32, input2:32, input3:32, input4:32, adc1:32, ... |
-| PushStateUpdate  | 0x05  | 2		| state:8, refreshInterval:8		|
+| Type               | Value | Data size  | Data values      |
+| ------------------ | ----- | ---------- | ---------------- |
+| Pong		     | 0x01  | 0 bytes    | *none*           |
+| Error		     | 0x02  | 1	  | errorCode:8      |
+| Update (single IO) | 0x03  | 5	  | addr:8, value:32 |
+| All sensors update | 0x04  | 44	  | input1:32, input2:32, ..., rtc:32 |
+| Push state update  | 0x05  | 1	  | state:8	     |
 
-# IO
+# IO addresses (`addr` param to pin mapping)
 
 | Addr  | Type             | Pin  |
 | ----- | ---------------- | ---- |
@@ -85,21 +86,21 @@ Rx pin: A10
 | 0x09  | ADC		   | A3   |
 | 0x0A  | Real time clock  | None |
 | 0x0B  | Digital output   | C13 (build in led) |
-| 0x0C  | Digital output   | A5  |
-| 0x0D  | Digital output   | A12 |
-| 0x0E  | Digital output   | A11 |
-| 0x0F  | Digital output   | A8  |
-| 0x10  | Digital output   | B15 |
-| 0x11  | Digital output   | B14 |
-| 0x12  | PWM		   | A6  |
-| 0x13  | PWM		   | A7  |
-| 0x14  | PWM		   | B0  |
-| 0x15  | PWM		   | B1  |
+| 0x0C  | Digital output   | A5   |
+| 0x0D  | Digital output   | A12  |
+| 0x0E  | Digital output   | A11  |
+| 0x0F  | Digital output   | A8   |
+| 0x10  | Digital output   | B15  |
+| 0x11  | Digital output   | B14  |
+| 0x12  | PWM		   | A6   |
+| 0x13  | PWM		   | A7   |
+| 0x14  | PWM		   | B0   |
+| 0x15  | PWM		   | B1   |
 | 0x16	| Display value	   | B5 (data), B6 (clock), B7 (latch) |
-| 0x17	| Display dot	   | N/D |
-| 0x18	| Buzzer enable	   | A4  |
-| 0x19	| Buzzer frequency | *^* |
-| 0x20	| Buzzer volume	   | *^* |
+| 0x17	| Display dot	   | N/D  |
+| 0x18	| Buzzer enable	   | A4   |
+| 0x19	| Buzzer frequency | *^*  |
+| 0x20	| Buzzer volume	   | *^*  |
 
 # Programming with J-Link
  
@@ -117,23 +118,23 @@ RST  --o   o-- GND
 N/D  --o   o-- GND
 5V   --o   o-- GND
 ```
-N/D - not used
+N/D - not used  
 SWO - not used
 
 ## STM32F103C8 SWD pins
 ```
-          G C D 3
-	  N L I V
-	  D K O 3
-          | | | |
-Vbat --o  | | | |  o-- 3,3V
-C13  --o  o o o o  o-- GND
-C14  --o           o-- 5V
-       |   Blue    |
-      ...  Pill   ...
-       |  top view |
-RST  --o           o-- B15
-       |           |
+           G C D 3
+	   N L I V
+	   D K O 3
+           | | | |
+Vbat --o   | | | |  o-- 3,3V
+C13  --o   o o o o  o-- GND
+C14  --o            o-- 5V
+       |    Blue    |
+      ...   Pill   ...
+       | (top view) |
+RST  --o            o-- B15
+       |            |
 ```
 ## Connection
 
