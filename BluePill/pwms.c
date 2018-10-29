@@ -27,6 +27,8 @@ void Pwm_Init(void)
 
 void Pwm_Set(u8 pwmIndex, u32 value)
 {
+	if (value == pwmValues[pwmIndex]) return ;
+	
 	pwmValues[pwmIndex] = value;
 	
 	switch (pwmIndex)

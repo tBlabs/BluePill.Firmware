@@ -11,9 +11,9 @@
 #include "stm32f10x_tim.h"
 #include "stm32f10x_rcc.h"
 
-static boolean isEnabled = false;
-static u32 frequency = 0;
-static u32 amplitude = 0;
+static boolean isEnabled = true;
+static u32 frequency = 2000;
+static u32 amplitude = 2000;
 
 void TIM7_IRQHandler(void)
 {

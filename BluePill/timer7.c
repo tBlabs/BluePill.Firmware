@@ -33,7 +33,8 @@ void Timer7_Enable(void)
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM7, ENABLE);
 
 	NVIC_InitTypeDef NVIC_InitStructure;
-////////////////	NVIC_InitStructure.NVIC_IRQChannel = TIM7_IRQn;
+////////////////
+	NVIC_InitStructure.NVIC_IRQChannel = TIM7_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 4;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;

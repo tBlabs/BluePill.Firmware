@@ -36,7 +36,6 @@ void IoSetup()
 	Pwm_Init();
 	Buzzer1_Init();
 	Displays_Init();
-	TemperatureSensor_Init();
 }
 
 void IoTasks()
