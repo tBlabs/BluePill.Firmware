@@ -40,6 +40,23 @@ Search for `BluePill.Driver` in my repo.
 		    GND --o    USB    o-- Input6 
 ```
 
+## Peripheral connection
+
+```
+	GND --- button --- Input	<-- button pressed == value 1
+	
+		     ADC
+		      |
+	GND --- potentiometer --- VCC 
+	
+	uC Tx ----- PC Rx
+	uC Rx ----- PC Tx
+	
+	Output --- led --- GND 		<-- value 0 == led on
+	
+	PWM --- led --- GND		<-- value 0 == led off
+```
+
 ## Serial config
 
 19200:8:1:n  
