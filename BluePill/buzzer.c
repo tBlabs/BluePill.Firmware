@@ -1,4 +1,14 @@
 /*
+ *
+ *		BUZZER IS NOT WORKING
+ *		
+ *		DONT KNOW WHY
+ *
+ *
+ *		Disabled in init and host!
+ *
+ *
+ *
  *	Works on @A4
  *	Using Timer7.
  */
@@ -12,8 +22,8 @@
 #include "stm32f10x_rcc.h"
 
 static boolean isEnabled = true;
-static u32 frequency = 2000;
-static u32 amplitude = 2000;
+static u32 frequency = 4000;
+static u32 amplitude = 1500;
 
 void TIM7_IRQHandler(void)
 {

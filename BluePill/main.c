@@ -34,8 +34,8 @@ void IoSetup()
 	RTC_Init();
 	Outputs_Init();
 	Pwm_Init();
-	Buzzer1_Init();
 	Displays_Init();
+//	Buzzer1_Init();
 }
 
 void IoTasks()

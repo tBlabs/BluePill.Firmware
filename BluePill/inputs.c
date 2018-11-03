@@ -9,6 +9,7 @@
 	item(input_3, 	PinB8) \
 	item(input_4, 	PinB13) \
 	item(input_5, 	PinB12) \
+	item(input_6, 	PinA4) \
 
 typedef struct
 {
@@ -34,5 +35,5 @@ void Inputs_Init(void)
 
 buttonState_t Input_GetValue(u8 inputIndex)
 {
-	return Pin_IsLow(&inputs[input_0].pin) ? buttonState_PRESSED : buttonState_NOT_PRESSED;
+	return Pin_IsLow(&inputs[inputIndex].pin) ? buttonState_PRESSED : buttonState_NOT_PRESSED;
 }

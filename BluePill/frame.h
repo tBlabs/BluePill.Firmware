@@ -13,20 +13,23 @@
 typedef enum
 {
 	requestFrameType_Ping = 1,
-	requestFrameType_Get,
-	requestFrameType_GetAll,
-	requestFrameType_Set,
-	requestFrameType_PushStateSet,
+	requestFrameType_Get = 2,
+	requestFrameType_GetAllSensors = 3,
+	requestFrameType_Set = 4,
+	requestFrameType_ConfigRead = 5,
+	requestFrameType_ConfigWrite = 6,
+	requestFrameType_GetAll = 7,
 }
 requestFrameType_t;
 
 typedef enum
 {
 	responseFrameType_Pong = 1,
-	responseFrameType_Error,
-	responseFrameType_Update,
-	responseFrameType_UpdateAll,
-	responseFrameType_PushStateUpdate,
+	responseFrameType_Error = 2,
+	responseFrameType_Update = 3,
+	responseFrameType_UpdateAllSensors = 4,
+	responseFrameType_ConfigUpdate = 5,
+	responseFrameType_UpdateAll = 6
 }
 responseFrameType_t;
 
