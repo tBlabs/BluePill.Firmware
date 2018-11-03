@@ -2,15 +2,14 @@
 
 Firmware for BluePill development board.
 
-**6x** Input  
+**7x** Input  
 **6x** Output **+1** Build in LED   
 **4x** ADC  
 **4x** PWM  
 **1x** RTC  
 **1x** 4-digit 7-seg Display  
-**1x** Buzzer
 
-## Any driver?
+## Driver
 
 Search for `BluePill.Driver` in my repo.
 
@@ -45,8 +44,8 @@ Search for `BluePill.Driver` in my repo.
 ```
 	GND --- button --- Input	<-- button pressed == value 1
 	
-		     ADC
-		      |
+		         ADC 
+		          |
 	GND --- potentiometer --- VCC 
 	
 	uC Tx ----- PC Rx
@@ -67,14 +66,15 @@ Rx pin: A10
 
 > 0xBB 0xAA {FrameType:8} {DataSize:8} {Data:0+} {Xor:8}
 
-| Type			        | Value | Data size | Params			           | Possible response |
-| --------------------- | ----- | --------- | ---------------------------- | ----------------- |
-| Ping			        | 0x01	| 0 bytes   | *none*			           | Pong	           |
-| Get			        | 0x02	| 1	        | addr:8			           | Update / Error    |
-| Get all sensors	    | 0x03	| 0	        | *none*			           | UpdateAll / Error |
-| Set			        | 0x04	| 5	        | addr:8, value:32		       | Update / Error    |
-| Config read           | 0x05  | 0         | *none*                       | ConfigUpdate      |
-| Config write          | 0x06  | 2         | pushMode:8, scanInterval:8   | ConfigUpdate      |
+| Type			        | Value | Data size | Params			           | Possible response        |
+| --------------------- | ----- | --------- | ---------------------------- | ------------------------ |
+| Ping			        | 0x01	| 0 bytes   | *none*			           | Pong	                  |
+| Get			        | 0x02	| 1	        | addr:8			           | Update / Error           |
+| Get all sensors	    | 0x03	| 0	        | *none*			           | UpdateAllSensors / Error |
+| Set			        | 0x04	| 5	        | addr:8, value:32		       | Update / Error           |
+| Config read           | 0x05  | 0         | *none*                       | ConfigUpdate             |
+| Config write          | 0x06  | 2         | pushMode:8, scanInterval:8   | ConfigUpdate             |
+| Get all			    | 0x07	| 0	        | *none*			           | UpdateAll		          |
 
 ## Response
 
@@ -85,8 +85,9 @@ Rx pin: A10
 | Pong		         | 0x01  | 0 bytes    | *none*                            |
 | Error		         | 0x02  | 1	      | errorCode:8                       |
 | Update (single IO) | 0x03  | 5	      | addr:8, value:32                  |
-| All sensors update | 0x04  | 44	      | input1:32, input2:32, ..., rtc:32 |
+| All sensors update | 0x04  | 12*4	      | input1:32, input2:32, ..., rtc:32 |
 | Config update      | 0x05  | 2	      | pushMode:8, pushInterval:8        |
+| All IO update      | 0x06  | 25*4	      | input1:32, ..., displayDot:32     |
 
 # Config
 
@@ -107,7 +108,7 @@ Default push mode is `Single` with 20ms interval. That means that the only auto 
 | 0x03  | Digital input    | B8   |
 | 0x04  | Digital input    | B13  |
 | 0x05  | Digital input    | B12  |
-| 0x06  | Digital input    | B12  |
+| 0x06  | Digital input    | A4   |
 | 0x07  | ADC		       | A0   |
 | 0x08  | ADC		       | A1   |
 | 0x09  | ADC		       | A2   |
