@@ -1,3 +1,7 @@
+TODO
+- remove RTC (or updates in config)
+- supress leading zeros in Display (or add to config)
+
 # BluePill.Firmware 
 
 Firmware for BluePill development board.
@@ -9,9 +13,10 @@ Firmware for BluePill development board.
 **1x** RTC  
 **1x** 4-digit 7-seg Display  
 
-## Driver
+## Drivers
 
-Search for `BluePill.Driver` in my repo.
+- `BluePill.Driver` - Standalone host with REST API
+- `BluePill.Client.Lib` - Library for Node projects
 
 ## Board pinout
 
@@ -20,23 +25,23 @@ Search for `BluePill.Driver` in my repo.
                     N/C --o  o o o o  o-- 3V3
  Output1 (build in led) --o           o-- GND
                     N/C --o           o-- 5V
-					N/C --o           o-- Input3 
-				   ADC1 --o           o-- Input4
-				   ADC2 --o           o-- Display Data 
-				   ADC3 --o           o-- Display Clock
-				   ADC4 --o           o-- Display Latch
-				 Input7 --o           o-- N/C
-				Output2 --o           o-- N/C  
-				   PWM1 --o           o-- N/C
-				   PWM2 --o           o-- Output3
-				   PWM3 --o           o-- Output4  
-				   PWM4 --o           o-- Rx   
-				 Input1 --o           o-- Tx   
-				 Input2 --o           o-- Output5  
-				  RESET --o           o-- Output6
-					3V3 --o           o-- Output7  
-					GND --o           o-- Input5  
-					GND --o    USB    o-- Input6 
+		    N/C --o           o-- Input3 
+		   ADC1 --o           o-- Input4
+		   ADC2 --o           o-- Display Data 
+		   ADC3 --o           o-- Display Clock
+		   ADC4 --o           o-- Display Latch
+		 Input7 --o           o-- N/C
+		Output2 --o           o-- N/C  
+		   PWM1 --o           o-- N/C
+		   PWM2 --o           o-- Output3
+		   PWM3 --o           o-- Output4  
+		   PWM4 --o           o-- Rx   
+		 Input1 --o           o-- Tx   
+		 Input2 --o           o-- Output5  
+		  RESET --o           o-- Output6
+			3V3 --o           o-- Output7  
+			GND --o           o-- Input5  
+			GND --o    USB    o-- Input6 
 ```
 
 ## Peripheral connection
@@ -44,8 +49,8 @@ Search for `BluePill.Driver` in my repo.
 ```
 	GND --- button --- Input	<-- button pressed == value 1
 	
-		         ADC 
-		          |
+	             ADC 
+		      |
 	GND --- potentiometer --- VCC 
 	
 	uC Tx ----- PC Rx
@@ -151,8 +156,8 @@ SWO - not used
 
 ```
            G C D 3
-	       N L I V
-	       D K O 3
+	   N L I V
+	   D K O 3
            | | | |
 Vbat --o   | | | |  o-- 3,3V
 C13  --o   o o o o  o-- GND
