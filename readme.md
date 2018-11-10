@@ -7,7 +7,7 @@ TODO
 Firmware for BluePill development board.
 
 **7x** Input  
-**7x** Output (including build in LED)
+**7x** Output (including build in LED)  
 **4x** ADC  
 **4x** PWM  
 **1x** RTC  
