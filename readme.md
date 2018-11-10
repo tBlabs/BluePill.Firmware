@@ -7,7 +7,7 @@ TODO
 Firmware for BluePill development board.
 
 **7x** Input  
-**6x** Output **+1** Build in LED   
+**7x** Output (including build in LED)
 **4x** ADC  
 **4x** PWM  
 **1x** RTC  
@@ -39,9 +39,9 @@ Firmware for BluePill development board.
 		 Input1 --o           o-- Tx   
 		 Input2 --o           o-- Output5  
 		  RESET --o           o-- Output6
-			3V3 --o           o-- Output7  
-			GND --o           o-- Input5  
-			GND --o    USB    o-- Input6 
+		    3V3 --o           o-- Output7  
+		    GND --o           o-- Input5  
+		    GND --o    USB    o-- Input6 
 ```
 
 ## Peripheral connection
