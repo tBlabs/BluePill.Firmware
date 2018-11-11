@@ -21,15 +21,18 @@ Firmware for BluePill development board.
 ## Board pinout
 
 ```
+                             G     3
+			     N     V
+			     D     3
                              | | | |
                     N/C --o  o o o o  o-- 3V3
  Output1 (build in led) --o           o-- GND
                     N/C --o           o-- 5V
 		    N/C --o           o-- Input3 
 		   ADC1 --o           o-- Input4
-		   ADC2 --o           o-- Display Data 
+		   ADC2 --o           o-- Display Latch 
 		   ADC3 --o           o-- Display Clock
-		   ADC4 --o           o-- Display Latch
+		   ADC4 --o           o-- Display Data
 		 Input7 --o           o-- N/C
 		Output2 --o           o-- N/C  
 		   PWM1 --o           o-- N/C
@@ -47,18 +50,20 @@ Firmware for BluePill development board.
 ## Peripheral connection
 
 ```
-	GND --- button --- Input	<-- button pressed == value 1
+	GND ----- button ----- Input		<--- button pressed == value 1
 	
 	             ADC 
 		      |
-	GND --- potentiometer --- VCC 
+	GND ----- potentiometer ----- VCC 
 	
-	uC Tx ----- PC Rx
-	uC Rx ----- PC Tx
+	GND ----- unused ADC			<--- connect unused ADC to GND
 	
-	Output --- led --- GND 		<-- value 0 == led on
+	uC Tx ----- Host Rx			<--- by Host we mean PC or R-Pi
+	uC Rx ----- Host Tx
 	
-	PWM --- led --- GND		<-- value 0 == led off
+	Output ----- led ----- GND 		<--- value 0 == led on
+	
+	PWM ----- led ----- GND			<--- value 0 == led off
 ```
 
 ## Serial config
