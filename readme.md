@@ -22,29 +22,29 @@ Firmware for BluePill development board.
 
 ```
                              G     3
-			     N     V
-			     D     3
+                             N     V
+                             D     3
                              | | | |
                     N/C --o  o o o o  o-- 3V3
  Output1 (build in led) --o           o-- GND
                     N/C --o           o-- 5V
-		    N/C --o           o-- Input3 
-		   ADC1 --o           o-- Input4
-		   ADC2 --o           o-- Display Latch 
-		   ADC3 --o           o-- Display Clock
-		   ADC4 --o           o-- Display Data
-		 Input7 --o           o-- N/C
-		Output2 --o           o-- N/C  
-		   PWM1 --o           o-- N/C
-		   PWM2 --o           o-- Output3
-		   PWM3 --o           o-- Output4  
-		   PWM4 --o           o-- Rx   
-		 Input1 --o           o-- Tx   
-		 Input2 --o           o-- Output5  
-		  RESET --o           o-- Output6
-		    3V3 --o           o-- Output7  
-		    GND --o           o-- Input5  
-		    GND --o    USB    o-- Input6 
+                    N/C --o           o-- Input3 
+                   ADC1 --o           o-- Input4
+                   ADC2 --o           o-- Display Latch 
+                   ADC3 --o           o-- Display Clock
+                   ADC4 --o           o-- Display Data
+                 Input7 --o           o-- N/C
+                Output2 --o           o-- N/C  
+                   PWM1 --o           o-- N/C
+                   PWM2 --o           o-- Output3
+                   PWM3 --o           o-- Output4  
+                   PWM4 --o           o-- Rx   
+                 Input1 --o           o-- Tx   
+                 Input2 --o           o-- Output5  
+                  RESET --o           o-- Output6
+                    3V3 --o           o-- Output7  
+                    GND --o           o-- Input5  
+                    GND --o    USB    o-- Input6 
 ```
 
 ## Peripheral connection

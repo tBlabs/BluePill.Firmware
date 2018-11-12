@@ -4,7 +4,7 @@
 #include "debug.h"
 #include "delay.h"
 
-#define PRINT_LEADING_ZEROS		true
+#define PRINT_LEADING_ZEROS		false
 
 /*
 		a           5
