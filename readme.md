@@ -1,4 +1,4 @@
-TODO
+# TODO
 - remove RTC (or updates in config)
 - supress leading zeros in Display (or add to config)
 
@@ -50,20 +50,20 @@ Firmware for BluePill development board.
 ## Peripheral connection
 
 ```
-	GND ----- button ----- Input		<--- button pressed == value 1
-	
-	             ADC 
-		      |
-	GND ----- potentiometer ----- VCC 
-	
-	GND ----- unused ADC			<--- connect unused ADC to GND
-	
-	uC Tx ----- Host Rx			<--- by Host we mean PC or R-Pi
-	uC Rx ----- Host Tx
-	
-	Output ----- led ----- GND 		<--- value 0 == led on
-	
-	PWM ----- led ----- GND			<--- value 0 == led off
+       GND ----- button ----- Input         <--- button pressed == value 1
+       
+                      ADC 
+                       |
+       GND ----- potentiometer ----- VCC 
+       
+       GND ----- unused ADC                 <--- connect unused ADC to GND
+       
+       uC Tx ----- Host Rx                  <--- by Host we mean PC or R-Pi
+       uC Rx ----- Host Tx
+       
+       Output ----- led ----- GND           <--- value 0 == led on
+       
+       PWM ----- led ----- GND              <--- value 0 == led off
 ```
 
 ## Serial config
@@ -76,15 +76,15 @@ Rx pin: A10
 
 > 0xBB 0xAA {FrameType:8} {DataSize:8} {Data:0+} {Xor:8}
 
-| Type			        | Value | Data size | Params			           | Possible response        |
+| Type                  | Value | Data size | Params                       | Possible response        |
 | --------------------- | ----- | --------- | ---------------------------- | ------------------------ |
-| Ping			        | 0x01	| 0 bytes   | *none*			           | Pong	                  |
-| Get			        | 0x02	| 1	        | addr:8			           | Update / Error           |
-| Get all sensors	    | 0x03	| 0	        | *none*			           | UpdateAllSensors / Error |
-| Set			        | 0x04	| 5	        | addr:8, value:32		       | Update / Error           |
+| Ping                  | 0x01  | 0 bytes   | *none*                       | Pong                     |
+| Get                   | 0x02  | 1         | addr:8                       | Update / Error           |
+| Get all sensors       | 0x03  | 0         | *none*                       | UpdateAllSensors / Error |
+| Set                   | 0x04  | 5         | addr:8, value:32             | Update / Error           |
 | Config read           | 0x05  | 0         | *none*                       | ConfigUpdate             |
 | Config write          | 0x06  | 2         | pushMode:8, scanInterval:8   | ConfigUpdate             |
-| Get all			    | 0x07	| 0	        | *none*			           | UpdateAll		          |
+| Get all               | 0x07  | 0         | *none*                       | UpdateAll                |
 
 ## Response
 
@@ -92,19 +92,19 @@ Rx pin: A10
 
 | Type               | Value | Data size  | Data values                       |
 | ------------------ | ----- | ---------- | --------------------------------- |
-| Pong		         | 0x01  | 0 bytes    | *none*                            |
-| Error		         | 0x02  | 1	      | errorCode:8                       |
-| Update (single IO) | 0x03  | 5	      | addr:8, value:32                  |
-| All sensors update | 0x04  | 12*4	      | input1:32, input2:32, ..., rtc:32 |
-| Config update      | 0x05  | 2	      | pushMode:8, pushInterval:8        |
-| All IO update      | 0x06  | 25*4	      | input1:32, ..., displayDot:32     |
+| Pong               | 0x01  | 0 bytes    | *none*                            |
+| Error              | 0x02  | 1          | errorCode:8                       |
+| Update (single IO) | 0x03  | 5          | addr:8, value:32                  |
+| All sensors update | 0x04  | 12*4       | input1:32, input2:32, ..., rtc:32 |
+| Config update      | 0x05  | 2          | pushMode:8, pushInterval:8        |
+| All IO update      | 0x06  | 25*4       | input1:32, ..., displayDot:32     |
 
 # Config
 
 | Byte index | Usage                                                | Default value |
 | ---------- | ---------------------------------------------------- | ------------- |
-| 0			 | Push mode (0x00 - None, 0x01 - All, 0x02 - Single    | Single        |
-| 1			 | Push interval                                        | 20 ms         |
+| 0          | Push mode (0x00 - None, 0x01 - All, 0x02 - Single)   | Single        |
+| 1          | Push interval                                        | 20 ms         |
 
 Default push mode is `Single` with 20ms interval. That means that the only auto updated value you should see after power up is RTC (every 1 second).
 
@@ -119,10 +119,10 @@ Default push mode is `Single` with 20ms interval. That means that the only auto 
 | 0x04  | Digital input    | B13  |
 | 0x05  | Digital input    | B12  |
 | 0x06  | Digital input    | A4   |
-| 0x07  | ADC		       | A0   |
-| 0x08  | ADC		       | A1   |
-| 0x09  | ADC		       | A2   |
-| 0x0A  | ADC		       | A3   |
+| 0x07  | ADC              | A0   |
+| 0x08  | ADC              | A1   |
+| 0x09  | ADC              | A2   |
+| 0x0A  | ADC              | A3   |
 | 0x0B  | Real time clock  | None |
 | 0x0C  | Digital output   | C13 (build in led) |
 | 0x0D  | Digital output   | A5   |
@@ -131,12 +131,12 @@ Default push mode is `Single` with 20ms interval. That means that the only auto 
 | 0x10  | Digital output   | A8   |
 | 0x11  | Digital output   | B15  |
 | 0x12  | Digital output   | B14  |
-| 0x13  | PWM		       | A6   |
-| 0x14  | PWM		       | A7   |
-| 0x15  | PWM		       | B0   |
-| 0x16  | PWM		       | B1   |
-| 0x17	| Display value	   | B5 (data), B6 (clock), B7 (latch) |
-| 0x18	| Display dot	   | N/D  |
+| 0x13  | PWM              | A6   |
+| 0x14  | PWM              | A7   |
+| 0x15  | PWM              | B0   |
+| 0x16  | PWM              | B1   |
+| 0x17  | Display value    | B5 (data), B6 (clock), B7 (latch) |
+| 0x18  | Display dot      | N/D  |
 
 # Programming with J-Link
  
@@ -161,8 +161,8 @@ SWO - not used
 
 ```
            G C D 3
-	   N L I V
-	   D K O 3
+           N L I V
+           D K O 3
            | | | |
 Vbat --o   | | | |  o-- 3,3V
 C13  --o   o o o o  o-- GND
@@ -178,11 +178,11 @@ RST  --o            o-- B15
 
 | J-link | Blue Pill |
 | ------ | --------- |
-| GND	 | GND       |
+| GND    | GND       |
 | CLK    | CLK       |
-| DIO	 | DIO       |
-| Vref	 | 3V3       |
-| RST	 | RST       |
+| DIO    | DIO       |
+| Vref   | 3V3       |
+| RST    | RST       |
        
 ## Blue Pill powering
 
@@ -197,7 +197,7 @@ Use Visual Studio + VisualGDB
 
 No idea
 
-# Testing from serial terminal (Bray++)
+# Testing from serial terminal (Br@y++)
 
 ## Ping-Pong
 
@@ -207,5 +207,4 @@ You should receive `AB 01 AA` response.
 
 ## Build in led (pin C13) on/off
 
-Send `$BB$AA$04$05$0B$00$00$00$00$1B` to turn LED on.  
-`$BB$AA$04$05$0B$01$00$00$00$1A` to off.
+Send `$bb$aa$04$05$0c$00$00$00$00$1c` to turn LED on. `$bb$aa$04$05$0c$01$00$00$00$1d` to off.
